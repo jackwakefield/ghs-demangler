@@ -32,6 +32,10 @@ func isGlobalConstructor(r *mangledReader) bool {
 		r.Skip(11)
 		return true
 	}
+	if ok, len := r.PeekEquals("__sti__"); ok {
+		r.Skip(len)
+		return true
+	}
 	return false
 }
 
@@ -40,6 +44,10 @@ func isGlobalConstructor(r *mangledReader) bool {
 func isGlobalDestructor(r *mangledReader) bool {
 	if isGlobalPrefixWithRune(r, 'D') {
 		r.Skip(11)
+		return true
+	}
+	if ok, len := r.PeekEquals("__std__"); ok {
+		r.Skip(len)
 		return true
 	}
 	return false

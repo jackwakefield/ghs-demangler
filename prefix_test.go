@@ -52,6 +52,7 @@ func TestIsGlobalConstructor(t *testing.T) {
 		{"_GLOBAL_*I*tie__C3ios", false, 0},
 		{"_GLOBAL_$D$tie__C3ios", false, 0},
 		{"AllAwait__8NdSysFSSFv", false, 0},
+		{"__sti___10_NdHeap_cpp_5f9e255c", true, 7},
 		{"", false, 0},
 	}
 	for _, set := range sets {
@@ -71,6 +72,7 @@ func TestIsGlobalDestructor(t *testing.T) {
 		{"_GLOBAL_$D$tie__C3ios", true, 11},
 		{"_GLOBAL_*D*tie__C3ios", false, 0},
 		{"AllAwait__8NdSysFSSFv", false, 0},
+		{"__std___10_NdHeap_cpp_5f9e255c", true, 7},
 		{"", false, 0},
 	}
 	for _, set := range sets {
