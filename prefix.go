@@ -18,7 +18,7 @@ func isGlobalPrefix(r *mangledReader) bool {
 func isGlobalPrefixWithRune(r *mangledReader, value rune) bool {
 	if isGlobalPrefix(r) {
 		marker := findMarkerRuneAt(r, 8)
-		if marker == findMarkerRuneAt(r, 10) && r.PeekRuneAt(9) == value {
+		if marker != 0 && marker == findMarkerRuneAt(r, 10) && r.PeekRuneAt(9) == value {
 			return true
 		}
 	}

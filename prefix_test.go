@@ -49,6 +49,7 @@ func TestIsGlobalConstructor(t *testing.T) {
 		offset  int
 	}{
 		{"_GLOBAL_$I$tie__C3ios", true, 11},
+		{"_GLOBAL_*I*tie__C3ios", false, 0},
 		{"_GLOBAL_$D$tie__C3ios", false, 0},
 		{"AllAwait__8NdSysFSSFv", false, 0},
 		{"", false, 0},
@@ -68,6 +69,7 @@ func TestIsGlobalDestructor(t *testing.T) {
 	}{
 		{"_GLOBAL_$I$tie__C3ios", false, 0},
 		{"_GLOBAL_$D$tie__C3ios", true, 11},
+		{"_GLOBAL_*D*tie__C3ios", false, 0},
 		{"AllAwait__8NdSysFSSFv", false, 0},
 		{"", false, 0},
 	}
